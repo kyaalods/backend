@@ -16,7 +16,10 @@ const userData = require('./Route/User')
 app.use('/api/auth', userData)
 
 /* PORT */
-const PORT = process.env.PORT || 4000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 4000;
+}
 
 const uri = process.env.DATABASE;
 mongoose.connect(
