@@ -29,9 +29,9 @@ mongoose.connect(
     if (err) {
       res.send(err);
     } else {
-      app.listen(PORT, () => {
+      app.listen(port, () => {
         console.log(
-          "Sever is running at " + PORT + " and connected to the database"
+          "Sever is running at " + port + " and connected to the database"
         );
       });
     }
