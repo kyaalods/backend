@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 
 const userAuth = require('../Models/userModel')
-const licenseKey = require('../Models/verifyLicense')
+const validlicenseKey = require('../Models/verifyLicense')
 const auth = require('../Middleware/Auth');
 const e = require('express');
 
@@ -95,10 +95,10 @@ router.post('/login', (req, res)=>{
     const { userName, password} = req.body
 
     try{
-        if(!userName || !password){
+        if(!userName|| !password){
             res.json({error: "Please fill all the fields"})
         }else{
-            userAuth.findOne({userName: userName}).then((user)=>{
+            userAuth.findOne({userName: userName.toLowerCase()}).then((user)=>{
                 if(user){
                     bcrypt.compare(password, user.password).then((exist)=>{
                         if(exist){
@@ -127,28 +127,38 @@ router.post('/login', (req, res)=>{
 
 
 router.post('/bind-key', auth, (req,res)=>{
-   
+   //MXDB-0428-0397-YEMI-4872
     const key = req.body.key
     const userId = req.user.id
-    
     validate = false
+
 
     try{
         if(!key){
             res.json({error: 'The license key cannot be empty.'})
         }else{
-            licenseKey.find({}).then((keys)=>{
+           
+            //Check if license exist
+
+            validlicenseKey.find({}).then((keys)=>{
                 if(keys){ 
                     validateKeys = []
                     keys.map((keys)=>{
                         const validKey = keys.licenseKey
                         if(validKey.includes(key)){
-                            //change validate into true
                             validate = true
+                            //Remove Key if user successfully bound the key to dashboard
+                            validlicenseKey.update({}, {$pull:{licenseKey:key}}).then((exist)=>{
+                                if(exist){
+                                    console.log('License removed')
+                                }else{
+                                    console.log('Invalid License')
+                                }
+                            })
                         }
                     })
-                    
-                    // if license is valid
+
+                    //if license is valid
                     if(validate){
                         userAuth.findByIdAndUpdate({_id: userId},{
                             $set:{key: key}
@@ -159,11 +169,7 @@ router.post('/bind-key', auth, (req,res)=>{
                         // if license if invalid
                         res.json({error: 'Invalid License Key'})
                     }
-                    // validateKeys.map((keys)=>{
-                    //     if(keys.includes(key)){
-                    //         console.log(key)
-                    //     }
-                    // })
+                  
 
                 }else{
                     console.log('Something went wrong')
@@ -199,6 +205,8 @@ router.post('/reset-license', auth, (req, res)=>{
             res.json({error: err})
         }
 })
+
+
 
 
 // router.post('/key', (req, res)=>{
