@@ -207,7 +207,7 @@ router.post('/reset-license', auth, (req, res)=>{
 })
 
 router.get('/version', (req, res)=>{
-    res.json({'version': '0.0.7'})
+    res.json({'version': '0.0.8'})
 })
 
 
