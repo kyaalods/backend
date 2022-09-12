@@ -191,7 +191,7 @@ router.post('/reset-license', auth, (req, res)=>{
         const ipAddress = req.body.ip
         const userId = req.user.id
         try{
-            userAuth.findByIdAndUpdate({_id: userId},{
+            userAuth.findByIdAndUpdate({_id: userId},{password: 0, ip: 0, firstName: 0, lastName: 0, email: 0},{
                 $set:{ip: ipAddress}
             }).then((user)=>{
                 if(user){
