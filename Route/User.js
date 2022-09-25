@@ -52,7 +52,9 @@ router.post('/register', (req, res)=>{
                   email: email.toLowerCase().trim(),
                   password: hashedpassword.trim(),
                   ip:ip.trim(),
-                  key: key
+                  key: key,
+                  TotalAccounts: 0,
+                  TotalRaffles: 0
                 });
   
                 /* if User is not exist register */

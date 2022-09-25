@@ -29,6 +29,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         
       },
+      TotalAccounts:{
+        type: Number
+      },
+      TotalRaffles:{
+        type: Number
+      },
+
 
     createdAt: {
         type: Date,
