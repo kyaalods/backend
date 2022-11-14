@@ -208,13 +208,9 @@ router.post('/reset-license', auth, (req, res)=>{
         }
 })
 
-router.get('/version', (req, res)=>{
-    res.json({'version': '0.0.17'})
+router.get('/version', (res)=>{
+    res.json({'version': '0.0.18'})
 })
-
-
-
-
 // router.post('/key', (req, res)=>{
 //         const key = req.body.key
 //         const id = '627a4c003e3c3e04ba91dbba'
