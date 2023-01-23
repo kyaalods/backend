@@ -154,7 +154,7 @@ router.post('/bind-key', auth, (req,res)=>{
                                 if(exist){
                                     console.log('License removed')
                                 }else{
-                                    console.log('Invalid License')
+                                    console.log('Invalid user License')
                                 }
                             })
                         }
