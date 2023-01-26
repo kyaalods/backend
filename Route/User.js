@@ -42,7 +42,7 @@ router.post('/register', (req, res)=>{
                 }else if (exist.userName=== userName.toLowerCase()){
                     res.json({error: 'Username Already Registered'})
                 }else if(exist.ip === ip){
-                    res.json({error: 'User with the same IP address was already registered'})
+                    res.json({error: 'User with same IP address already registered'})
                 }
             }else{
                  /* encrypt password */
@@ -156,7 +156,7 @@ router.post('/bind-key', auth, (req,res)=>{
                                 if(exist){
                                     console.log('License removed')
                                 }else{
-                                    console.log('Invalid user License')
+                                    console.log('Invalid License')
                                 }
                             })
                         }
@@ -194,14 +194,14 @@ router.post('/bind-key', auth, (req,res)=>{
 router.post('/reset-license', auth, (req, res)=>{
         const ipAddress = req.body.ip
         const userId = req.user.id
-        ip = localIpAddress()
+        //ip = localIpAddress()
         
         try{
             userAuth.findByIdAndUpdate({_id: userId},{
-                $set:{ip: ip}
+                $set:{ip: ipAddress}
             }).then((user)=>{
                 if(user){
-                    res.json({user:user, message: 'The license was successfully reset.'})
+                    res.json({user:user, ip:ip, message: 'The license was successfully reset.'})
                     
                 }
                 else{
