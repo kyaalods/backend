@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router();
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken') 
+const jwt = require('jsonwebtoken')
+const localIpAddress = require("local-ip-address") 
+
 
 
 const userAuth = require('../Models/userModel')
@@ -192,12 +194,15 @@ router.post('/bind-key', auth, (req,res)=>{
 router.post('/reset-license', auth, (req, res)=>{
         const ipAddress = req.body.ip
         const userId = req.user.id
+        ip = localIpAddress()
+        
         try{
             userAuth.findByIdAndUpdate({_id: userId},{
-                $set:{ip: ipAddress}
+                $set:{ip: ip}
             }).then((user)=>{
                 if(user){
                     res.json({user:user, message: 'The license was successfully reset.'})
+                    
                 }
                 else{
                     res.json({error: 'Failed to reset license'})
@@ -209,7 +214,7 @@ router.post('/reset-license', auth, (req, res)=>{
 })
 
 router.get('/HRB/version', (req,res)=>{
-    res.json({'version': '0.0.33'})
+    res.json({'version': '0.0.32'})
 })
 // router.post('/key', (req, res)=>{
 //         const key = req.body.key
