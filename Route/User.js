@@ -30,7 +30,7 @@ router.post('/register', (req, res)=>{
     
     try{
         if(!firstName.trim() || !lastName.trim() || !userName.trim() || !email.trim() || !password.trim() || !ip ){
-            res.json({error: 'Please fill in all the fields.'})
+            res.json({error: 'Please fill all the fields.'})
         }else{
             userAuth.findOne({$or:[{email: email.toLowerCase()},
             {userName: userName.toLowerCase()}, { ip: ip}],
