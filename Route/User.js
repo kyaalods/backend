@@ -4,8 +4,6 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const localIpAddress = require("local-ip-address") 
 
-
-
 const userAuth = require('../Models/userModel')
 const validlicenseKey = require('../Models/verifyLicense')
 const auth = require('../Middleware/Auth');
@@ -214,7 +212,7 @@ router.post('/reset-license', auth, (req, res)=>{
 })
 
 router.get('/HRB/version', (req,res)=>{
-    res.json({'version': '0.0.69'})
+    res.json({'version': '0.0.70'})
 })
 // router.post('/key', (req, res)=>{
 //         const key = req.body.key
