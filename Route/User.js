@@ -1,4 +1,4 @@
-const express = require('express')
+5const express = require('express')
 const router = express.Router();
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
@@ -212,7 +212,7 @@ router.post('/reset-license', auth, (req, res)=>{
 })
 
 router.get('/HRB/version', (req,res)=>{
-    res.json({'version': '0.0.84'})
+    res.json({'version': '0.0.85'})
 })
 // router.post('/key', (req, res)=>{
 //         const key = req.body.key
