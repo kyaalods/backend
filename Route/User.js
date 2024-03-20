@@ -13,7 +13,6 @@ const e = require('express');
 router.get('/', async (req, res)=>{
     try{
     const users =  await userAuth.find({}, {password: 0, ip: 0})
-
     res.json(users)
     }catch(err){
         res.json({error: err})
