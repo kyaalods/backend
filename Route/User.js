@@ -215,7 +215,7 @@ router.get('/HRB/version', (req,res)=>{
 })
 
 router.get('/HRB/Beta/version', (req,res)=>{
-    res.json({'version': '0.0.1'})
+    res.json({'version': '0.1.1'})
 })
 // router.post('/key', (req, res)=>{
 //         const key = req.body.key
