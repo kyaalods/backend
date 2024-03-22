@@ -213,6 +213,10 @@ router.post('/reset-license', auth, (req, res)=>{
 router.get('/HRB/version', (req,res)=>{
     res.json({'version': '0.0.85'})
 })
+
+router.get('/HRB/Beta/version', (req,res)=>{
+    res.json({'version': '0.0.1'})
+})
 // router.post('/key', (req, res)=>{
 //         const key = req.body.key
 //         const id = '627a4c003e3c3e04ba91dbba'
