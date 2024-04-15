@@ -211,7 +211,7 @@ router.post('/reset-license', auth, (req, res)=>{
 })
 
 router.get('/HRB/version', (req,res)=>{
-    res.json({'version': '0.0.88'})
+    res.json({'version': '0.0.89'})
 })
 
 router.get('/HRB/Beta/version', (req,res)=>{
