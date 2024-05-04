@@ -198,7 +198,7 @@ router.post('/reset-license', auth, (req, res)=>{
                 $set:{ip: ipAddress}
             }).then((user)=>{
                 if(user){
-                    res.json({user:user, ip:ip, message: 'The license key was successfully reset.'})
+                    res.json({user:user, ip:ipAddress, message: 'The license key was successfully reset.'})
                     
                 }
                 else{
