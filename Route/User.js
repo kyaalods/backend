@@ -214,7 +214,11 @@ router.get('/HRB/version', (req,res)=>{
     res.json({'version': '0.0.97'})
 })
 
-router.get('/HRB/Beta/version', (req,res)=>{
+router.get('/HRB/windows/version', (req,res)=>{
+    res.json({'version': '0.1.7'})
+})
+
+router.get('/HRB/mac/version', (req,res)=>{
     res.json({'version': '0.1.7'})
 })
 // router.post('/key', (req, res)=>{
