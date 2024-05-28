@@ -219,7 +219,7 @@ router.get('/HRB/windows/version', (req,res)=>{
 })
 
 router.get('/HRB/mac/version', (req,res)=>{
-    res.json({'version': '0.1.9'})
+    res.json({'version': '0.1.8'})
 })
 // router.post('/key', (req, res)=>{
 //         const key = req.body.key
