@@ -215,7 +215,7 @@ router.get('/HRB/version', (req,res)=>{
 })
 
 router.get('/HRB/windows/version', (req,res)=>{
-    res.json({'version': '0.6.2'})
+    res.json({'version': '0.6.3'})
 })
 
 router.get('/HRB/mac/version', (req,res)=>{
