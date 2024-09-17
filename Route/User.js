@@ -128,7 +128,7 @@ router.post('/login', (req, res)=>{
 
 
 router.post('/bind-key', auth, (req,res)=>{
-   //MXDB-0428-0397-YEMI-4872
+   
     const key = req.body.key
     const userId = req.user.id
     validate = false
