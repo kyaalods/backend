@@ -223,7 +223,7 @@ router.get('/HRB/mac/version', (req,res)=>{
 })
 
 router.get('/Kurama/windows/version', (req,res)=>{
-    res.json({'version': '0.2'})
+    res.json({'version': '0.3'})
 })
 // router.post('/key', (req, res)=>{
 //         const key = req.body.key
