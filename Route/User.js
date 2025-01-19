@@ -222,7 +222,7 @@ router.get('/HRB/mac/version', (req,res)=>{
     res.json({'version': '0.7.6'})
 })
 
-router.get('/Kurama/windows/version', (req,res)=>{
+router.get('/SNKRS/windows/version', (req,res)=>{
     res.json({'version': '0.9'})
 })
 
