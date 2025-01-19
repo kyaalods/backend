@@ -225,6 +225,10 @@ router.get('/HRB/mac/version', (req,res)=>{
 router.get('/Kurama/windows/version', (req,res)=>{
     res.json({'version': '0.9'})
 })
+
+router.get('/Kurama/windows/version', (req,res)=>{
+    res.json({'version': '0.0.9'})
+})
 // router.post('/key', (req, res)=>{
 //         const key = req.body.key
 //         const id = '627a4c003e3c3e04ba91dbba'
