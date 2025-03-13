@@ -227,7 +227,7 @@ router.get('/Kurama/windows/version', (req,res)=>{
 })
 
 router.get('/SNKRS/windows/version', (req,res)=>{
-    res.json({'version': '0.0.3'})
+    res.json({'version': '0.0.4'})
 })
 // router.post('/key', (req, res)=>{
 //         const key = req.body.key
