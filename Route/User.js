@@ -223,7 +223,7 @@ router.get('/HRB/mac/version', (req,res)=>{
 })
 
 router.get('/Kurama/windows/version', (req,res)=>{
-    res.json({'version': '1.8'})
+    res.json({'version': '1.9'})
 })
 
 router.get('/SNKRS/windows/version', (req,res)=>{
